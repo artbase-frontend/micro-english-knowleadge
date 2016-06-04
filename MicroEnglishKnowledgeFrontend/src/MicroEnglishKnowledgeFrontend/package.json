@@ -1,7 +1,9 @@
 {
 	"version": "1.0.0",
-	"name": "Micro English Knowledge",
+	"name": "MicroEnglishKnowledge",
 	"private": true,
-	"devDependencies": {
-	}
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-cli": "1.2.0"
+  }
 }
