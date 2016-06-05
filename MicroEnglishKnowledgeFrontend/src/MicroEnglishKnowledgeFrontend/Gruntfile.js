@@ -15,6 +15,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: 'app/**',
+      tasks: ['bootlint'],
       options: {
         livereload: true
       }
@@ -38,7 +39,16 @@ module.exports = function(grunt) {
           "architecture": ["/app/*.js"]
          }
       }
-    }                                  
+    },
+    bootlint: {
+      options: {
+          showallerrors: true,
+          stoponerror: false,
+          stoponwarning: false,
+          relaxerror: []
+        },
+        files: ['app/*.html']
+    }                             
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -47,6 +57,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-angular-modules-graph');
   grunt.loadNpmTasks('grunt-graphviz');
   grunt.loadNpmTasks('grunt-angular-architecture-graph');
+  grunt.loadNpmTasks('grunt-bootlint');
   
   // Default task(s).
   grunt.registerTask('default', ['connect', 'watch']);
