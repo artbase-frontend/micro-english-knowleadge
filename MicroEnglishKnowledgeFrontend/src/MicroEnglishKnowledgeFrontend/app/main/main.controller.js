@@ -9,7 +9,7 @@
 
     function main($scope) {
         $scope.title = 'Welcome to micro english';
-
+        
         activate();
 
         function activate() { }
