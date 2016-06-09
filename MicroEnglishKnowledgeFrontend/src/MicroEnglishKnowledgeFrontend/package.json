@@ -3,7 +3,6 @@
   "name": "MicroEnglishKnowledge",
   "private": true,
   "devDependencies": {
-    "bootstrap": "^3.3.6",
     "grunt": "1.0.1",
     "grunt-angular-architecture-graph": "^0.2.6",
     "grunt-angular-modules-graph": "^0.3.1-1",

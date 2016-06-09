@@ -25,18 +25,18 @@ module.exports = function(grunt) {
         externalDependenciesColor:'red'
       },
       files: {
-          './architecture/destination-file.dot': ['/app/*.js']
+          'architecture/destination-file.dot': ['app/*.js']
       }
     },
     graphviz: {
         files: {
-          './architecture/dependencies-graph.png': './architecture/destination-file.dot'
+          'architecture/dependencies-graph.png': 'architecture/destination-file.dot'
         }
     },
     angular_architecture_graph: {
       diagram: {
         files: {
-          "architecture": ["/app/*.js"]
+          "architecture": ["app/*.js"]
          }
       }
     },

@@ -3,11 +3,71 @@ digraph dependencies {
 
     node[shape="component"]
     
+      "microEnglishKnowledge"[label="microEnglishKnowledge", color=1]
+    
 
+    
+      
     
 
     node[shape="ellipse"]
 
+
+    
+      
+
+      
+
+      
+
+      
+
+
+      node[shape="cds"]
+
+      
+
+      
+
+
+
+
+
+      node[shape="ellipse"]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+
+
+
+
+
+
+
+
+
+
+      node[shape="ellipse",style="filled", color=8]
+      
+
+      
+
+      
+
+      
+
+      
+
+      
 
     
 }
