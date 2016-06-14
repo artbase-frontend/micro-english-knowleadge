@@ -1,0 +1,7 @@
+{
+    "env": "global config, it will be remove",
+    "default_lang": "en",
+    "api": {
+        "data_source": ""
+    }
+}

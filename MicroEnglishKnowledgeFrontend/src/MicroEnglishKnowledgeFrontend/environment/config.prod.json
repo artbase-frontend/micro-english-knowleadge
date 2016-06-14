@@ -1,0 +1,7 @@
+{
+    "env": "prod",
+    "debug": false,
+    "api": {
+        "data_source": ""
+    }
+}

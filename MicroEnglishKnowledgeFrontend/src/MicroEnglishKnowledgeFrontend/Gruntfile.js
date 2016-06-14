@@ -51,6 +51,31 @@ module.exports = function (grunt) {
     },
     jshint: {
       all: ['Gruntfile.js', 'app/*.js', 'app/**/*.js']
+    },
+    ngconstant: {
+      options: {
+        name: 'MekConstants',
+        dest: 'app/config/mek.constants.js',
+        constants: {
+          CONFIG: grunt.file.readJSON('environment/config.json')
+        }
+      },
+      dev: {
+        constants: {
+          CONFIG: grunt.file.readJSON('environment/config.dev.json')
+        },
+        values: {
+          debug: true
+        }
+      },
+      prod: {
+        constants: {
+          CONFIG: grunt.file.readJSON('environment/config.prod.json')
+        },
+        values: {
+          debug: false
+        }
+      }
     }
   });
 
@@ -62,7 +87,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-angular-architecture-graph');
   grunt.loadNpmTasks('grunt-bootlint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-ng-constant');
 
   // Default task(s).
-  grunt.registerTask('default', ['connect', 'watch']);
+  grunt.registerTask('default', ['ngconstant:dev', 'connect', 'watch']);
 };
