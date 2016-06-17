@@ -3,16 +3,7 @@ module.exports = function (grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    connect: {
-      server: {
-        options: {
-          port: 9000,
-          base: 'app',
-          open: true,
-          livereload: true
-        }
-      }
-    },
+    connect: grunt.file.readJSON('environment/grunt/connect.config.json'),
     watch: {
       files: 'app/**',
       tasks: ['bootlint', 'jshint'],
@@ -20,35 +11,10 @@ module.exports = function (grunt) {
         livereload: true
       }
     },
-    'modules-graph': {
-      options: {
-        externalDependenciesColor: 'red'
-      },
-      files: {
-        'architecture/destination-file.dot': ['app/*.js']
-      }
-    },
-    graphviz: {
-      files: {
-        'architecture/dependencies-graph.png': 'architecture/destination-file.dot'
-      }
-    },
-    angular_architecture_graph: {
-      diagram: {
-        files: {
-          "architecture": ["app/*.js"]
-        }
-      }
-    },
-    bootlint: {
-      options: {
-        showallerrors: true,
-        stoponerror: false,
-        stoponwarning: false,
-        relaxerror: []
-      },
-      files: ['app/*.html']
-    },
+    'modules-graph': grunt.file.readJSON('environment/grunt/modules-graph.config.json'),
+    graphviz: grunt.file.readJSON('environment/grunt/graphviz.config.json'),
+    angular_architecture_graph: grunt.file.readJSON('environment/grunt/angular-architecture-graph.config.json'),
+    bootlint: grunt.file.readJSON('environment/grunt/bootlint.config.json'),
     jshint: {
       all: ['Gruntfile.js', 'app/*.js', 'app/**/*.js']
     },

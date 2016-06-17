@@ -1,0 +1,10 @@
+{
+    "server": {
+        "options": {
+          "port": 9000,
+          "base": "app",
+          "open": true,
+          "livereload": true
+        }
+    }
+}

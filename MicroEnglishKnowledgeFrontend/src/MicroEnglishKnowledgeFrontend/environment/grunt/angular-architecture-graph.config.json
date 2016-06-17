@@ -1,0 +1,7 @@
+{
+    "diagram": {
+        "files": {
+          "architecture": ["app/*.js"]
+        }
+    }
+}

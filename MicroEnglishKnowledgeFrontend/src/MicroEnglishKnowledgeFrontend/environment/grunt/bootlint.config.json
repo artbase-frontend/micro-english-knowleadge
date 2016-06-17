@@ -1,0 +1,9 @@
+{
+    "options": {
+        "showallerrors": true,
+        "stoponerror": false,
+        "stoponwarning": false,
+        "relaxerror": []
+    },
+    "files": ["app/*.html"]
+}

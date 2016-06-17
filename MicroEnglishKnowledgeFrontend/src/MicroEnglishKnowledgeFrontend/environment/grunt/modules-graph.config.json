@@ -1,0 +1,8 @@
+{
+      "options": {
+        "externalDependenciesColor": "red"
+      },
+      "files": {
+        "architecture/destination-file.dot": ["app/*.js"]
+      }
+}
