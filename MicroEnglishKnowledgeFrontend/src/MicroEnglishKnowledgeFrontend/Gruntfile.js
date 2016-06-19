@@ -6,7 +6,7 @@ module.exports = function (grunt) {
     connect: grunt.file.readJSON('environment/grunt/connect.config.json'),
     watch: {
       files: 'app/**',
-      tasks: ['bootlint', 'jshint'],
+      tasks: ['bootlint', 'jshint', 'copy:dev'],
       options: {
         livereload: true
       }
@@ -42,6 +42,41 @@ module.exports = function (grunt) {
           debug: false
         }
       }
+    },
+    copy: {
+      dev: {
+        files: [
+          {
+            expand: true, 
+            cwd: 'app',
+            src: ['**'], 
+            dest: 'dev/',
+            
+          }
+        ],
+        options: {
+          process: function (content, srcpath) {
+              if(srcpath === 'app/index.html')
+              {
+                  var paths = grunt.file.expand({filter: "isFile", cwd: "app"},["**"]);
+                  paths.reverse();
+
+                  var lines = '';
+                  paths.forEach(function(element) {
+                    if(element.indexOf('.js') > -1)
+                    {
+                      lines = lines + '<script src="' + element + '"></script> \n';
+                    }
+                  }, this);
+
+                  return content.replace(/<script src="all-files.js"><\/script>/g, lines);
+              } else{
+                return content;
+              }
+              
+          }
+        }
+      }
     }
   });
 
@@ -54,7 +89,9 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-bootlint');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-ng-constant');
+  grunt.loadNpmTasks('grunt-contrib-copy');
 
   // Default task(s).
-  grunt.registerTask('default', ['ngconstant:dev', 'connect', 'watch']);
+  grunt.registerTask('default', ['connect', 'watch']);
+  grunt.registerTask('dev', ['ngconstant:dev', 'copy:dev', 'connect:dev', 'watch']);
 };

@@ -1,8 +1,8 @@
 {
-    "server": {
+    "dev": {
         "options": {
           "port": 9000,
-          "base": "app",
+          "base": "dev",
           "open": true,
           "livereload": true
         }
