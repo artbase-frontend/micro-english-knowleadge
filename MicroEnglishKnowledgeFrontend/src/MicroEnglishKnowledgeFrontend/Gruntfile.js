@@ -77,6 +77,9 @@ module.exports = function (grunt) {
           }
         }
       }
+    },
+    clean: {
+      dev: ['dev/*', '!dev/web.config']
     }
   });
 
@@ -90,8 +93,10 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-ng-constant');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-clean');
 
   // Default task(s).
-  grunt.registerTask('default', ['connect', 'watch']);
-  grunt.registerTask('dev', ['ngconstant:dev', 'copy:dev', 'connect:dev', 'watch']);
+  grunt.registerTask('default', ['dev']);
+  grunt.registerTask('dev', ['ngconstant:dev', 'clean:dev', 'copy:dev', 'connect:dev', 'watch']);
+  grunt.registerTask('staging', []);
 };
