@@ -1,3 +1,6 @@
 MicroEnglishKnowledgeFrontend/.vs/
 MicroEnglishKnowledgeFrontend/src/MicroEnglishKnowledgeFrontend/node_modules/
 MicroEnglishKnowledgeFrontend/src/MicroEnglishKnowledgeFrontend/dev/
+MicroEnglishKnowledgeFrontend/src/MicroEnglishKnowledgeFrontend/environment/grunt/ftp_push.config.json
+MicroEnglishKnowledgeFrontend/src/MicroEnglishKnowledgeFrontend/environment/grunt/ftpush.config.json
+MicroEnglishKnowledgeFrontend/src/MicroEnglishKnowledgeFrontend/environment/microlearningv01dev.PublishSettings

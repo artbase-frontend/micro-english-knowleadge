@@ -13,6 +13,8 @@
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-jshint": "^1.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-ftp-push": "^1.0.0",
+    "grunt-ftpush": "^0.3.3",
     "grunt-graphviz": "^0.1.1",
     "grunt-ng-constant": "^2.0.1"
   }

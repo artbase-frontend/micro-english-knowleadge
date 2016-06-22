@@ -80,6 +80,28 @@ module.exports = function (grunt) {
     },
     clean: {
       dev: ['dev/*', '!dev/web.config']
+    },
+    ftp_push: {
+      dev: {
+        options: grunt.file.readJSON('environment/grunt/ftp_push.config.json'),
+        files: [
+          {
+            expand: true,
+            cwd: 'dev',
+            src: ['**']
+          }
+        ]
+      }
+    },
+    ftpush: {
+      dev: {
+        auth: grunt.file.readJSON('environment/grunt/ftpush.config.json'),
+        src: 'dev/',
+        dest: '/site/wwwroot/',
+        exclusions: [],
+        simple: false,
+        useList: false
+      }
     }
   });
 
@@ -94,9 +116,17 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-ng-constant');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-ftp-push');
+  grunt.loadNpmTasks('grunt-ftpush');
+
+  // TODO: TO PRODUCTION
+  // https://github.com/gruntjs/grunt-contrib-htmlmin
+  // https://github.com/gruntjs/grunt-contrib-imagemin
 
   // Default task(s).
   grunt.registerTask('default', ['dev']);
   grunt.registerTask('dev', ['ngconstant:dev', 'clean:dev', 'copy:dev', 'connect:dev', 'watch']);
+  grunt.registerTask('deploy-dev', ['ngconstant:dev', 'clean:dev', 'copy:dev', 'ftp_push:dev']);
+  grunt.registerTask('deploy-dev-with-remove', ['ngconstant:dev', 'clean:dev', 'copy:dev', 'ftpush:dev']);
   grunt.registerTask('staging', []);
 };
