@@ -102,7 +102,18 @@ module.exports = function (grunt) {
         simple: false,
         useList: false
       }
-    }
+    },
+    less: {
+        dev: {
+          options: {
+            paths: ['app']
+          },
+          files: {
+            'app/*.css': 'app/*.less',
+            'app/**/*.css': 'app/**/*.less'
+          }
+        }
+      }
   });
 
   // Load the plugin that provides the "uglify" task.
@@ -118,6 +129,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-ftp-push');
   grunt.loadNpmTasks('grunt-ftpush');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
   // TODO: TO PRODUCTION
   // https://github.com/gruntjs/grunt-contrib-htmlmin
